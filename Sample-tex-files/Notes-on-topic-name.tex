@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[a4paper, total={6.5in, 9.75in}]{geometry}
+\usepackage{amsmath,amssymb,amsbsy,amsfonts,amsthm,bbm,bm,mathtools,mathrsfs}
+\usepackage{color}
+\usepackage{physics}
+\usepackage{xfrac}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,citecolor=MidnightBlue,linkcolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{empheq,ragged2e}
+\usepackage{pgfplots}
+\usepackage{stackengine}
+\usepackage{relsize}
+\usepackage[inline]{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+\usepackage{import}
+
+% Tikz
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{arrows,intersections}
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\newcommand*{\citen}[1]{%
+	\begingroup
+	\romannumeral-`\x % remove space at the beginning of \setcitestyle
+	\setcitestyle{numbers}%
+	\cite{#1}%
+	\endgroup   
+}
+\usepackage[mathscr]{euscript}
+
+
+\usepackage{calligra}
+
+\usepackage{lettrine}
+\usepackage{setspace}
+
+% Tikz
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{arrows,intersections}
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\renewcommand{\arraystretch}{1}
+\setlength{\tabcolsep}{12pt}
+
+\begin{document}
+	\def\xlist{4}
+	\def\ylist{4}
+\section*{My work}
+
+Describe your recent work.
+
+\begin{figure}[h!]
+	\centering
+	\hspace*{-0.75cm}\includegraphics[width=0.45\textwidth]{sample-plot.pdf}
+	\caption{Caption goes here}
+	\label{fig:plot-label}
+\end{figure}
+\end{document}
+
