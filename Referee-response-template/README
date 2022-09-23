@@ -1,0 +1,13 @@
+main-file.tex
+
+Compile this main-file.tex to generate the complete pdf which includes 
+
+Letter-to-the-editor.tex
+ref-A.tex
+ref-B.tex
+references.bib
+
+All these files can be edited separately. 
+
+
+Last modified on Sep. 23, 2022
