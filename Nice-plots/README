@@ -1,0 +1,14 @@
+Use the  style file "our_plot_syle.txt" to generate publication quality plots.
+
+Add the line plt.style.use('our_plot_style.txt') in your jupyter notebook or python code. 
+Make sure you have the file "our_plot_syle.txt" in the same folder as your code.
+
+Visit this github page for more: https://github.com/matplotlib/matplotlib/tree/v3.4.3
+
+If you some useful tricks for generating beautiful plots, add here.
+
+# figure dpi
+figure.dpi = 300 or higher are the best for publicaton.
+figure.dpi = 125 could be good for plots to be displayed on a webpage.
+
+# matplotlibrc-template.txt has the list of configuration parameters.
