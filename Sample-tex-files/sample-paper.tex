@@ -11,20 +11,54 @@
 \usepackage{stackengine}
 \usepackage{relsize}
 \usepackage[inline]{enumitem}
-\usepackage[normalem]{ulem}
+\usepackage[normalem]{ulem} % Comment this out before submitting papers! (otherrwsie will cause problems with references. 
 \usepackage{comment}
 \usepackage{import}
 \usepackage[english]{babel}
 \usepackage{lipsum}  
 
+\renewcommand{\bibnumfmt}[1]{(#1)}
+\usepackage{enumitem} 
+
 % Macros
 \newcommand{\sdc}[1]{\textcolor{blue}{[SD: #1]}}
 \newcommand{\jrg}[1]{\textcolor{red}{#1}}
 \newcommand{\jrgc}[1]{\textcolor{red}{[JRG: #1]}}
+\newcommand{\PlaceHolder}{\blue{[TMP PLACE HOLDER]}} 
+
+% Colors: 
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\green}{\textcolor{green}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\yellow}{\textcolor{yellow}} 
+\newcommand{\magenta}{\textcolor{magenta}}
+
+% Shortcuts
+\newcommand{\speedtime}{\tau_{\!\scriptscriptstyle\mathcal{A}}} 
+\newcommand{\speedtimework}{\tau_{\!\scriptscriptstyle\mathcal{W}}}
+\newcommand{\Qdot}{\dot{\mathcal{Q}}}
+\newcommand{\Wdot}{\dot{\mathcal{W}}}
+\newcommand{\Q}{\mathcal{Q}}
+\newcommand{\W}{\mathcal{W}}
+
+% Bold letters
+\newcommand{\bp}{\boldsymbol{p}}
+\newcommand{\bq}{\boldsymbol{q}}
+\newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\bC}{\boldsymbol{C}}
+
+% Mathand Tables 
+\newcommand{\cov}{\operatorname{cov}} % To mark covariance 
+\newcommand{\Hquad}{\hspace{0.5em}} % Short spacing in equations
+\newcommand{\HHquad}{\hspace{0.25em}} % Even shorter spacing 
+\usepackage{pbox} % For breaking lines in table
+\usepackage{tcolorbox}  % For a gray background textbox
+
+
 
 \begin{document}
 	
-	\title{Paper title here TestTestTestTestTest}  
+	\title{Paper title here}  
 	
 	\author{Author's name}
 	\author{Jason~R.~Green}
@@ -55,7 +89,8 @@ Introduction here Ref~\cite{Nicholson2020}
 Describe your results
 
 \begin{align}
-\Delta t \bar S/n\geq k_B.
+\Delta t \bar S/n&\geq k_B.\nonumber\\ 
+&=\quad\text{Boltzmann's constant}\qquad >0\HHquad >1
 \end{align}
 
 \lipsum[2-3]
@@ -66,12 +101,57 @@ Describe your results
 	\label{fig:plot-label}
 \end{figure}
 
+\begin{figure}[t] 
+\centering
+\begin{tikzpicture}
+\node (image) at (0,-0.125) {
+  \includegraphics[width=0.9\linewidth]{Sample-tex-files/MissingFigure.png}
+};
+\node (image) at (0,-3.75) {
+  \includegraphics[width=0.9\linewidth]{Sample-tex-files/MissingFigure.png}
+};
+\node[text=black] (a) at (-2.3,1.4){\footnotesize{(a)}};
+\node[text=black] (b) at (-2.3,-2.0){\footnotesize{(b)}};
+\end{tikzpicture} 
+\caption{
+{\footnotesize{Figure with two panels, using Tikz.}}}
+\label{fig:TikzExample} 
+\end{figure} 
+
+
+ %%%%%%%%% Start Table 
+%\begin{widetext} 
+%\begin{center}
+\begin{table}[t] 
+\footnotesize
+%\centering 
+\begin{tabular}{| c | c | c |} % (3 columns) 
+\hline\hline 
+Category & Col$1$ & Col$2$\\
+[0.5ex] %
+\hline 
+Cat1&$1$&$2$\\
+%%%%% 
+Cat2&$1$&$2$\\
+%%%%% 
+Cat3&$1$&$2$\\
+[0.5ex]
+\hline\hline 
+\end{tabular} 
+\caption{\footnotesize{Example of a Table.}}
+\label{Table1} 
+\end{table} 
+%\end{center} 
+%\end{widetext}
+%%%%%%%%% End Table 
 
 \section{Conclusions}
 
 Conclude the paper
 
 \lipsum[2-3]
+\\ 
+
 
 \section{Acknowledgments}
 \begin{acknowledgments}
@@ -79,7 +159,15 @@ Conclude the paper
 This material is based upon work supported by the National Science Foundation under Grant No. ....
 
 \end{acknowledgments}
+
 \appendix
+
+\section{App. A}
+\label{AppAT} 
+We briefly explain the derivation of.... 
+\begin{equation}
+    (\text{This shows how Eqs in the App should be numbered.})
+\end{equation}
 
 \bibliography{references}
 
