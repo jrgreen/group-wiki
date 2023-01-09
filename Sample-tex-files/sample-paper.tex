@@ -5,7 +5,8 @@
 \usepackage{xfrac}
 \usepackage[dvipsnames]{xcolor}
 \definecolor{LapisLazuli}{RGB}{47, 102, 169}
-\usepackage[colorlinks=true,citecolor=LapisLazuli,linkcolor=LapisLazuli,urlcolor=LapisLazuli]{hyperref}
+\usepackage[colorlinks=true,citecolor=LapisLazuli,linkcolor=LapisLazuli,urlcolor=LapisLazuli]{hyperref} 
+
 \usepackage{empheq}
 \usepackage{pgfplots}
 \usepackage{stackengine}
@@ -16,6 +17,10 @@
 \usepackage{import}
 \usepackage[english]{babel}
 \usepackage{lipsum}  
+
+\usepackage{tikz}
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.pathreplacing}
 
 \renewcommand{\bibnumfmt}[1]{(#1)}
 \usepackage{enumitem} 
@@ -86,22 +91,67 @@ Introduction here Ref~\cite{Nicholson2020}
 \lipsum[2-3]
 
 \section{Results and Discussion}
-Describe your results
+Describe your results.  Here are some useful Latex tips, compare the code with the result in the compiled file. 
 
+\begin{enumerate}
+    \item  Look at the spacing and the use of ``align'': 
 \begin{align}
 \Delta t \bar S/n&\geq k_B.\nonumber\\ 
-&=\quad\text{Boltzmann's constant}\qquad >0\HHquad >1
+&=\quad\text{Boltzmann's constant}\qquad >0\HHquad >1 . 
+\label{EqSOvern}
 \end{align}
+Remember to give relevant names to your equations! Not just Eq1, Eq2 etc., because these might change. 
+\item Use (backslash) + \textbf{left} and \textbf{right} before parenthesise, to make their size adjustable: 
+\begin{align}
+[(\frac{\Qdot}{2})],\quad\text{versus}\quad \left[\left(\frac{\Qdot}{2}\right)\right] 
+\label{EqParenthesiseSizes}
+\end{align}
+and here is how you reference to Eq.~\eqref{EqParenthesiseSizes}. 
+This also work with floor/ceil and bra/kets: 
+\begin{align}
+\left\langle \frac{\W}{2}\right\rangle,\quad\left\lfloor e^{-\beta\W}\right\rfloor,\quad\text{and}\quad \left\lceil e^{-\beta\W}\right\rceil 
+\label{EqParenthesiseSizes}
+\end{align}
+\item Use the symbol $\sim$ in order to ``stick'' Eq. to the reference (see the line above, \textbf{in the Latex code}). 
+\item Use Eq.~\eqref{}, NOT Eq.~\ref{}. For figures and Tables, use Fig.~\ref{} and Table.~\ref{} without parenthesize. 
+\item Use $``$ (on the left) and $"$ (on the right) for quotes, NOT $"$ on both sides. 
+\item \blue{This} \yellow{example} \magenta{shows} \green{how} \red{to use colors}. for comments, use \blue{[JohnDoe: Comment here.]}. You can also \textbf{bold}, \sout{strike out} and \textit{Italicize} text. 
+\item Figure~\ref{fig:plot-label} shows how to add a normal figure and Fig~\ref{fig:TikzExample} shows how to add a figure with two panels using Tikz.  
+\item Say ``Figure'' at the start of a sentence and Fig. in the middle.  
+\item Table~\ref{Table1} is an example for how to add tables in Latex.
+\item \PlaceHolder  
+\item \begin{verbatim}
+This is how to add codes/algorithms in Latex.
+\end{verbatim} 
+
+\item The following shows how to add bullets: 
+\begin{itemize}
+  \item bullet 1. 
+  \item Bullet 2.
+  \item[*] Bullet 3. 
+  \item[!] Bullet 4. 
+  \label{ListBullets}
+\end{itemize}
+
+\item To add a footnote~\footnote{All you need to do is this.}. 
+
+\label{ListEnumarated}
+\end{enumerate} 
+ 
 
 \lipsum[2-3]
-\begin{figure}[h!]
+
+ %%%%%%%%% Start normal figure 
+ \begin{figure}[h!] %t!=top, h!=here, b!=bottom, tbh=Latex choses best
 	\centering
 	\hspace*{-0.75cm}\includegraphics[width=0.45\textwidth]{sample-plot.pdf}
-	\caption{Caption goes here}
+	\caption{\footnotesize{Caption goes here, in footnote size.}}
 	\label{fig:plot-label}
 \end{figure}
-
-\begin{figure}[t] 
+ %%%%%%%%% End normal figure
+ 
+ %%%%%%%%% Start Tikzfigure
+\begin{figure}[t] %t without the "!" is a reccomendationn for top, which Latex may ignore
 \centering
 \begin{tikzpicture}
 \node (image) at (0,-0.125) {
@@ -117,12 +167,12 @@ Describe your results
 {\footnotesize{Figure with two panels, using Tikz.}}}
 \label{fig:TikzExample} 
 \end{figure} 
-
+ %%%%%%%%% End Tikzfigure 
 
  %%%%%%%%% Start Table 
 %\begin{widetext} 
 %\begin{center}
-\begin{table}[t] 
+\begin{table}[b] 
 \footnotesize
 %\centering 
 \begin{tabular}{| c | c | c |} % (3 columns) 
@@ -160,15 +210,18 @@ This material is based upon work supported by the National Science Foundation un
 
 \end{acknowledgments}
 
+\bibliography{references} 
+
 \appendix
 
 \section{App. A}
 \label{AppAT} 
 We briefly explain the derivation of.... 
-\begin{equation}
-    (\text{This shows how Eqs in the App should be numbered.})
-\end{equation}
+\begin{align}
+    &(\text{Eqs in the App should be numbered A1,A2,B1 etc.}\nonumber\\ 
+    &\text{Need to fix this here.)}
+\end{align}
 
-\bibliography{references}
+
 
 \end{document}
