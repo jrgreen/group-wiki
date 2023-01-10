@@ -1,4 +1,4 @@
-\documentclass[prl,aps,reprint,noshowpacs,superscriptaddress,floatfix,letterpaper,longbibliography]{revtex4-2}
+\documentclass[pre,aps,reprint,noshowpacs,superscriptaddress,floatfix,letterpaper,longbibliography]{revtex4-2}
 \usepackage{amsmath,amssymb,amsbsy,amsfonts,amsthm,bbm,bm,mathtools,mathrsfs}
 \usepackage{color}
 \usepackage{physics}
@@ -6,7 +6,6 @@
 \usepackage[dvipsnames]{xcolor}
 \definecolor{LapisLazuli}{RGB}{47, 102, 169}
 \usepackage[colorlinks=true,citecolor=LapisLazuli,linkcolor=LapisLazuli,urlcolor=LapisLazuli]{hyperref} 
-
 \usepackage{empheq}
 \usepackage{pgfplots}
 \usepackage{stackengine}
@@ -17,6 +16,7 @@
 \usepackage{import}
 \usepackage[english]{babel}
 \usepackage{lipsum}  
+\usepackage{mathtools} 
 
 \usepackage{tikz}
 \usetikzlibrary{decorations}
@@ -25,11 +25,11 @@
 \renewcommand{\bibnumfmt}[1]{(#1)}
 \usepackage{enumitem} 
 
-% Macros
+% Macros -- you can add new ones sa much as you like 
 \newcommand{\sdc}[1]{\textcolor{blue}{[SD: #1]}}
 \newcommand{\jrg}[1]{\textcolor{red}{#1}}
 \newcommand{\jrgc}[1]{\textcolor{red}{[JRG: #1]}}
-\newcommand{\PlaceHolder}{\blue{[TMP PLACE HOLDER]}} 
+\newcommand{\TBC}{\magenta{[TBC]}} 
 
 % Colors: 
 \newcommand{\red}{\textcolor{red}}
@@ -52,7 +52,7 @@
 \newcommand{\bx}{\boldsymbol{x}}
 \newcommand{\bC}{\boldsymbol{C}}
 
-% Mathand Tables 
+% Math and Tables 
 \newcommand{\cov}{\operatorname{cov}} % To mark covariance 
 \newcommand{\Hquad}{\hspace{0.5em}} % Short spacing in equations
 \newcommand{\HHquad}{\hspace{0.25em}} % Even shorter spacing 
@@ -92,15 +92,16 @@ Introduction here Ref~\cite{Nicholson2020}
 
 \section{Results and Discussion}
 Describe your results.  Here are some useful Latex tips, compare the code with the result in the compiled file. 
-
-\begin{enumerate}
+\subsection{Writing and referencing to equations:}  
+\begin{enumerate} 
+\item Sometimes it is useful to use, instead of, e.g., $W$; $\mathcal{W}$ or $\mathscr{W}$. Works for other letters too. 
     \item  Look at the spacing and the use of ``align'': 
 \begin{align}
 \Delta t \bar S/n&\geq k_B.\nonumber\\ 
 &=\quad\text{Boltzmann's constant}\qquad >0\HHquad >1 . 
 \label{EqSOvern}
 \end{align}
-Remember to give relevant names to your equations! Not just Eq1, Eq2 etc., because these might change. 
+\item \textbf{Remember to give relevant names to your equations! Not just Eq1, Eq2 etc., because these might change.} 
 \item Use (backslash) + \textbf{left} and \textbf{right} before parenthesise, to make their size adjustable: 
 \begin{align}
 [(\frac{\Qdot}{2})],\quad\text{versus}\quad \left[\left(\frac{\Qdot}{2}\right)\right] 
@@ -111,47 +112,51 @@ This also work with floor/ceil and bra/kets:
 \begin{align}
 \left\langle \frac{\W}{2}\right\rangle,\quad\left\lfloor e^{-\beta\W}\right\rfloor,\quad\text{and}\quad \left\lceil e^{-\beta\W}\right\rceil 
 \label{EqParenthesiseSizes}
-\end{align}
-\item Use the symbol $\sim$ in order to ``stick'' Eq. to the reference (see the line above, \textbf{in the Latex code}). 
-\item Use Eq.~\eqref{}, NOT Eq.~\ref{}. For figures and Tables, use Fig.~\ref{} and Table.~\ref{} without parenthesize. 
-\item Use $``$ (on the left) and $"$ (on the right) for quotes, NOT $"$ on both sides. 
-\item \blue{This} \yellow{example} \magenta{shows} \green{how} \red{to use colors}. for comments, use \blue{[JohnDoe: Comment here.]}. You can also \textbf{bold}, \sout{strike out} and \textit{Italicize} text. 
-\item Figure~\ref{fig:plot-label} shows how to add a normal figure and Fig~\ref{fig:TikzExample} shows how to add a figure with two panels using Tikz.  
-\item Say ``Figure'' at the start of a sentence and Fig. in the middle.  
-\item Table~\ref{Table1} is an example for how to add tables in Latex.
-\item \PlaceHolder  
-\item \begin{verbatim}
-This is how to add codes/algorithms in Latex.
-\end{verbatim} 
+\end{align} 
 
-\item The following shows how to add bullets: 
-\begin{itemize}
-  \item bullet 1. 
-  \item Bullet 2.
-  \item[*] Bullet 3. 
-  \item[!] Bullet 4. 
-  \label{ListBullets}
-\end{itemize}
+\item To add matrices, see here: \href{https://www.overleaf.com/learn/latex/Matrices.}{Reference to read about matrices.} 
 
-\item To add a footnote~\footnote{All you need to do is this.}. 
+\item Sometime, you might have a long expression in brackets inside an equation, which spans over two lines. This is what you need to do in this case: Use (backslash) + (big/Big/Bigg). 
+\begin{align}
+    (A+B+C)^2&=\Big(A^2+B^2+C^2\nonumber\\ 
+    &+2AB+2AC+2BC\Big)
+\end{align} 
+\href{https://garsia.math.yorku.ca/~zabrocki/latexpanel/latexpanel.pdf}{See more details here.}  
 
-\label{ListEnumarated}
+\item For Greek and special mathematical symbols,  \href{https://garsia.math.yorku.ca/~zabrocki/latexpanel/latexpanel.pdf}{See the list here.} 
+
+\item Curled brackets, in math mode only, and underbrace: \\ 
+$\left\{ \underbrace{(A+B+\sigma+\phi+\Phi)}_{max}=\text{max}(A+B+\sigma+\phi+\Phi)\right\}$. 
+
+\item Cases: $f(n) = \begin{cases}
+  n/2  & n \text{ is even} \\
+  3n+1 & n \text{ is odd}
+\end{cases}$ 
+
+\label{List:Equations}
 \end{enumerate} 
- 
 
-\lipsum[2-3]
+\subsection{Writing correctly and efficiently in Latex:}
+\begin{enumerate} 
+\item Use the symbol $\sim$ in order to ``stick'' Eq. to the reference (see the line above, \textbf{in the Latex code}). 
 
+\item Use Eq.~\eqref{}, NOT Eq.~\ref{}. For figures and Tables, use Fig.~\ref{} and Table.~\ref{} without parenthesize. 
+
+    \item Use $``$ (on the left) and $"$ (on the right) for quotes, NOT $"$ on both sides. 
+    
+\item \blue{This} \yellow{example} \magenta{shows} \green{how} \red{to use colors}. For comments, use \blue{[JohnDoe: Comment here.]}. You can also \textbf{bold}, \sout{strike out} and \textit{Italicize} text. \\ Note that sout require the ``ulem" package, and it must be removed before submitting a paper, or else it creates problems with the references.\\ Of course, you can also \underline{underline text}. 
+
+\item Figure~\ref{fig:plot-label} shows how to add a normal figure and Fig~\ref{fig:TikzExample} shows how to add a figure with two panels using Tikz.  
  %%%%%%%%% Start normal figure 
- \begin{figure}[h!] %t!=top, h!=here, b!=bottom, tbh=Latex choses best
+ \begin{figure}[t!] %t!=top, h!=here, b!=bottom, tbh=Latex choses best
 	\centering
 	\hspace*{-0.75cm}\includegraphics[width=0.45\textwidth]{sample-plot.pdf}
 	\caption{\footnotesize{Caption goes here, in footnote size.}}
 	\label{fig:plot-label}
 \end{figure}
- %%%%%%%%% End normal figure
- 
+ %%%%%%%%% End normal figure 
  %%%%%%%%% Start Tikzfigure
-\begin{figure}[t] %t without the "!" is a reccomendationn for top, which Latex may ignore
+\begin{figure}[tbh] %t or b or h without the "!" is a reccomendationn for top, which Latex may ignore
 \centering
 \begin{tikzpicture}
 \node (image) at (0,-0.125) {
@@ -164,15 +169,18 @@ This is how to add codes/algorithms in Latex.
 \node[text=black] (b) at (-2.3,-2.0){\footnotesize{(b)}};
 \end{tikzpicture} 
 \caption{
-{\footnotesize{Figure with two panels, using Tikz.}}}
+{\footnotesize{Figure with two panels, using Tikz. Tikz helps put the '(a)' and '(b)' in the top of the panels, but can also be used to arrange the panels in general and even create pictures. ``Missing figure" is a place-holder figure (recommended to have such a figure, use your own creative designs). }}}
 \label{fig:TikzExample} 
 \end{figure} 
- %%%%%%%%% End Tikzfigure 
+ %%%%%%%%% End Tikzfigure  
 
+\item Say ``Figure'' at the start of a sentence and Fig. in the middle.  
+
+\item Table~\ref{Table1} is an example for how to add tables in Latex. 
  %%%%%%%%% Start Table 
 %\begin{widetext} 
 %\begin{center}
-\begin{table}[b] 
+\begin{table}[h!] 
 \footnotesize
 %\centering 
 \begin{tabular}{| c | c | c |} % (3 columns) 
@@ -195,6 +203,35 @@ Cat3&$1$&$2$\\
 %\end{widetext}
 %%%%%%%%% End Table 
 
+
+
+\item \begin{verbatim}
+This is how to add codes/algorithms in Latex.
+\end{verbatim} 
+
+\item The following shows how to add bullets: 
+\begin{itemize}
+  \item bullet (default). 
+  \item[*] Bullet (star). 
+  \item[!] Bullet (exclamation mark).  
+  \item[$\dagger$] Bullet (dagger). 
+  \label{ListBullets}
+\end{itemize}
+
+\item To add a footnote~\footnote{All you need to do is this. (This is a footnote, not a citation.}. 
+
+\item To add clickable links use 
+\href{https://latex-tutorial.com/tutorials/hyperlinks/}{Reference to adding clickable links.} (requires the package ``hyperref"). 
+
+\item Temporary place holder: \TBC \\ (defined in the preamble)
+
+\item Curled brackets, outside math mode: \{ and \}
+\label{List:Latex}
+\end{enumerate}
+
+\lipsum[2-2]
+
+
 \section{Conclusions}
 
 Conclude the paper
@@ -203,7 +240,6 @@ Conclude the paper
 \\ 
 
 
-\section{Acknowledgments}
 \begin{acknowledgments}
 % This text is provided by the funding agency. Jason will provide.
 This material is based upon work supported by the National Science Foundation under Grant No. ....
@@ -214,12 +250,13 @@ This material is based upon work supported by the National Science Foundation un
 
 \appendix
 
-\section{App. A}
+\section{Title here}
 \label{AppAT} 
 We briefly explain the derivation of.... 
 \begin{align}
+    &1=1!\nonumber\\ 
     &(\text{Eqs in the App should be numbered A1,A2,B1 etc.}\nonumber\\ 
-    &\text{Need to fix this here.)}
+    &\text{There are no appendices in a PRL layout!.)}
 \end{align}
 
 
