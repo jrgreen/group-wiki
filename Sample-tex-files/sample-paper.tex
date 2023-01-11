@@ -26,9 +26,7 @@
 \usepackage{enumitem} 
 
 % Macros -- you can add new ones sa much as you like 
-\newcommand{\sdc}[1]{\textcolor{blue}{[SD: #1]}}
-\newcommand{\jrg}[1]{\textcolor{red}{#1}}
-\newcommand{\jrgc}[1]{\textcolor{red}{[JRG: #1]}}
+\newcommand{\Comment}[1]{\textcolor{blue}{[JohnDoe: #1]}}
 \newcommand{\TBC}{\magenta{[TBC]}} 
 
 % Colors: 
@@ -39,8 +37,7 @@
 \newcommand{\magenta}{\textcolor{magenta}}
 
 % Shortcuts
-\newcommand{\speedtime}{\tau_{\!\scriptscriptstyle\mathcal{A}}} 
-\newcommand{\speedtimework}{\tau_{\!\scriptscriptstyle\mathcal{W}}}
+\newcommand{\NiceSubscript}{\tau_{\!\scriptscriptstyle\mathcal{A}}} 
 \newcommand{\Qdot}{\dot{\mathcal{Q}}}
 \newcommand{\Wdot}{\dot{\mathcal{W}}}
 \newcommand{\Q}{\mathcal{Q}}
@@ -60,7 +57,7 @@
 \usepackage{tcolorbox}  % For a gray background textbox
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 	
 	\title{Paper title here}  
@@ -77,31 +74,40 @@
 		Boston, MA 02125
 	}
 	\date{\today}
-	
+
+%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%% 
 \begin{abstract}	
 	Abstract goes here.
 	\lipsum[1-1]
 \end{abstract}
 
 \maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
 Introduction here Ref~\cite{Nicholson2020}
 
 \lipsum[2-3]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and Discussion}
 Describe your results.  Here are some useful Latex tips, compare the code with the result in the compiled file. 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Writing and referencing to equations:}  
 \begin{enumerate} 
+
 \item Sometimes it is useful to use, instead of, e.g., $W$; $\mathcal{W}$ or $\mathscr{W}$. Works for other letters too. 
     \item  Look at the spacing and the use of ``align'': 
 \begin{align}
 \Delta t \bar S/n&\geq k_B.\nonumber\\ 
-&=\quad\text{Boltzmann's constant}\qquad >0\HHquad >1 . 
+&=\qquad\text{Boltzmann's constant}\quad >0\HHquad >1 . 
 \label{EqSOvern}
 \end{align}
-\item \textbf{Remember to give relevant names to your equations! Not just Eq1, Eq2 etc., because these might change.} 
+
+\item \textbf{Remember to give relevant names to your equations! Not just Eq1, Eq2 etc., in the equation labels, because these might change.} 
+
 \item Use (backslash) + \textbf{left} and \textbf{right} before parenthesise, to make their size adjustable: 
 \begin{align}
 [(\frac{\Qdot}{2})],\quad\text{versus}\quad \left[\left(\frac{\Qdot}{2}\right)\right] 
@@ -128,14 +134,15 @@ This also work with floor/ceil and bra/kets:
 \item Curled brackets, in math mode only, and underbrace: \\ 
 $\left\{ \underbrace{(A+B+\sigma+\phi+\Phi)}_{max}=\text{max}(A+B+\sigma+\phi+\Phi)\right\}$. 
 
-\item Cases: $f(n) = \begin{cases}
-  n/2  & n \text{ is even} \\
-  3n+1 & n \text{ is odd}
+\item Cases: $f(\NiceSubscript) = \begin{cases}
+  \NiceSubscript/2\bp+\bq  & \bp \text{ is even} \\
+  3\NiceSubscript+\bp & \bp \text{ is odd}
 \end{cases}$ 
 
 \label{List:Equations}
 \end{enumerate} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Writing correctly and efficiently in Latex:}
 \begin{enumerate} 
 \item Use the symbol $\sim$ in order to ``stick'' Eq. to the reference (see the line above, \textbf{in the Latex code}). 
@@ -144,7 +151,7 @@ $\left\{ \underbrace{(A+B+\sigma+\phi+\Phi)}_{max}=\text{max}(A+B+\sigma+\phi+\P
 
     \item Use $``$ (on the left) and $"$ (on the right) for quotes, NOT $"$ on both sides. 
     
-\item \blue{This} \yellow{example} \magenta{shows} \green{how} \red{to use colors}. For comments, use \blue{[JohnDoe: Comment here.]}. You can also \textbf{bold}, \sout{strike out} and \textit{Italicize} text. \\ Note that sout require the ``ulem" package, and it must be removed before submitting a paper, or else it creates problems with the references.\\ Of course, you can also \underline{underline text}. 
+\item \blue{This} \yellow{example} \magenta{shows} \green{how} \red{to use colors}. For comments, use \Comment{Comment here.}. You can also \textbf{bold}, \sout{strike out} and \textit{Italicize} text. \\ Note that sout require the ``ulem" package, and it must be removed before submitting a paper, or else it creates problems with the references.\\ Of course, you can also \underline{underline text}. 
 
 \item Figure~\ref{fig:plot-label} shows how to add a normal figure and Fig~\ref{fig:TikzExample} shows how to add a figure with two panels using Tikz.  
  %%%%%%%%% Start normal figure 
@@ -204,7 +211,6 @@ Cat3&$1$&$2$\\
 %%%%%%%%% End Table 
 
 
-
 \item \begin{verbatim}
 This is how to add codes/algorithms in Latex.
 \end{verbatim} 
@@ -226,12 +232,14 @@ This is how to add codes/algorithms in Latex.
 \item Temporary place holder: \TBC \\ (defined in the preamble)
 
 \item Curled brackets, outside math mode: \{ and \}
+
+
 \label{List:Latex}
 \end{enumerate}
 
 \lipsum[2-2]
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 
 Conclude the paper
@@ -239,17 +247,20 @@ Conclude the paper
 \lipsum[2-3]
 \\ 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgments}
 % This text is provided by the funding agency. Jason will provide.
 This material is based upon work supported by the National Science Foundation under Grant No. ....
 
 \end{acknowledgments}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{references} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Title here}
 \label{AppAT} 
 We briefly explain the derivation of.... 
@@ -260,5 +271,5 @@ We briefly explain the derivation of....
 \end{align}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
