@@ -1,6 +1,8 @@
 \documentclass[pre,aps,reprint,noshowpacs,superscriptaddress,floatfix,letterpaper,longbibliography]{revtex4-2}
 \usepackage{amsmath,amssymb,amsbsy,amsfonts,amsthm,bbm,bm,mathtools,mathrsfs}
-\usepackage{color}
+ % To determin margin size: 
+ %\usepackage[top=1cm, bottom=1cm, left=1cm, right=1cm]{geometry} 
+ \usepackage{color}
 \usepackage{physics}
 \usepackage{xfrac}
 \usepackage[dvipsnames]{xcolor}
@@ -145,9 +147,9 @@ $\left\{ \underbrace{(A+B+\sigma+\phi+\Phi)}_{max}=\text{max}(A+B+\sigma+\phi+\P
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Writing correctly and efficiently in Latex:}
 \begin{enumerate} 
-\item Use the symbol $\sim$ in order to ``stick'' Eq. to the reference (see the line above, \textbf{in the Latex code}). 
+\item Use the symbol $\sim$ in order to ``stick'' Eq. to the reference. For example: ``\verb|see Fig.~\ref{}|''. 
 
-\item Use Eq.~\eqref{}, NOT Eq.~\ref{}. For figures and Tables, use Fig.~\ref{} and Table.~\ref{} without parenthesize. 
+\item Use \verb|Eq.~\eqref{}|, NOT \verb|Eq.~\ref{}|. For figures and Tables, use \verb|Fig.~\ref{}| and \verb|Table.~\ref{}| without parenthesize. 
 
     \item Use $``$ (on the left) and $"$ (on the right) for quotes, NOT $"$ on both sides. 
     
@@ -214,6 +216,8 @@ Cat3&$1$&$2$\\
 \item \begin{verbatim}
 This is how to add codes/algorithms in Latex.
 \end{verbatim} 
+Use: \verb|\begin{verbatim} ..... end{verbatim}|  \\ 
+or \verb|\verb|.....||. 
 
 \item The following shows how to add bullets: 
 \begin{itemize}
@@ -229,10 +233,17 @@ This is how to add codes/algorithms in Latex.
 \item To add clickable links use 
 \href{https://latex-tutorial.com/tutorials/hyperlinks/}{Reference to adding clickable links.} (requires the package ``hyperref"). 
 
-\item Temporary place holder: \TBC \\ (defined in the preamble)
+\item Temporary place holder: \verb|\TBC| \\ (defined in the preamble)
 
-\item Curled brackets, outside math mode: \{ and \}
+\item Curled brackets, outside math mode: \verb|\{ and \} |
 
+\item To change the margin size in a paper, use: ``usepackage[top=1cm, bottom=1cm, left=1cm, right=1cm]{geometry}"  
+
+\item In Supplemental Material: Section titles, figures etc., are numbered as S1, S2, ... To do so, add the following lines to the preamble 
+\verb|\renewcommand{\theequation}{S\arabic{equation}}|
+\verb|\renewcommand{\thefigure}{S\arabic{figure}}|
+\verb|\renewcommand{\thesection}{S\arabic{section}}|
+\verb|\renewcommand{\thetable}{S\arabic{table}}|. 
 
 \label{List:Latex}
 \end{enumerate}
