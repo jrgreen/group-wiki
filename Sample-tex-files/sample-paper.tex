@@ -19,7 +19,7 @@
 \usepackage[english]{babel}
 \usepackage{lipsum}  
 \usepackage{mathtools} 
-
+\usepackage{soul} % strikeout package; use \st{text}.
 \usepackage{tikz}
 \usetikzlibrary{decorations}
 \usetikzlibrary{decorations.pathreplacing}
@@ -58,6 +58,12 @@
 \usepackage{pbox} % For breaking lines in table
 \usepackage{tcolorbox}  % For a gray background textbox
 
+\makeatletter
+\def\maketitle{
+\@author@finish
+\title@column\titleblock@produce
+\suppressfloats[t]}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -169,10 +175,10 @@ $\left\{ \underbrace{(A+B+\sigma+\phi+\Phi)}_{max}=\text{max}(A+B+\sigma+\phi+\P
 \centering
 \begin{tikzpicture}
 \node (image) at (0,-0.125) {
-  \includegraphics[width=0.9\linewidth]{Sample-tex-files/MissingFigure.png}
+  \includegraphics[width=0.9\linewidth]{MissingFigure.png}
 };
 \node (image) at (0,-3.75) {
-  \includegraphics[width=0.9\linewidth]{Sample-tex-files/MissingFigure.png}
+  \includegraphics[width=0.9\linewidth]{MissingFigure.png}
 };
 \node[text=black] (a) at (-2.3,1.4){\footnotesize{(a)}};
 \node[text=black] (b) at (-2.3,-2.0){\footnotesize{(b)}};
@@ -218,6 +224,8 @@ This is how to add codes/algorithms in Latex.
 \end{verbatim} 
 Use: \verb|\begin{verbatim} ..... end{verbatim}|  \\ 
 or \verb|\verb|.....||. 
+
+\st{We don't need this text.}
 
 \item The following shows how to add bullets: 
 \begin{itemize}
@@ -281,6 +289,16 @@ We briefly explain the derivation of....
     &\text{There are no appendices in a PRL layout!.)}
 \end{align}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+\setcounter{figure}{0}
+\setcounter{section}{0}
+\renewcommand{\thefigure}{SM\arabic{figure}}
+\title{Supplemental Material: Paper title }
+\maketitle
+
+%\section{First section}{\label{sec:}}
+
 \end{document}
